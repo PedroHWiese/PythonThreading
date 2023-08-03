@@ -6,6 +6,7 @@ def enviar_mensagem(s, message):
     s.sendall(message.encode('utf-8'))
     response = s.recv(1024).decode('utf-8')
     print("Resposta do servidor:", response)
+    time.sleep(1)  # Pequeno atraso entre o envio de cada mensagem
 
 def cliente():
     HOST = '127.0.0.1'  # Endereço IP do servidor (loopback)
@@ -21,6 +22,7 @@ def cliente():
             thread = threading.Thread(target=enviar_mensagem, args=(s, 'Olá'))
             threads.append(thread)
             thread.start()
+
 
         for thread in threads:
             thread.join()
