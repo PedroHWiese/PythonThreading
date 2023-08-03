@@ -57,6 +57,7 @@ def servidor():
         response_thread.start()
 
         while True:
+            
             # Aguardar uma nova conexão
             conn, addr = s.accept()
 

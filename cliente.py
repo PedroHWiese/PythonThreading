@@ -19,6 +19,7 @@ def cliente():
 
         threads = []
         for _ in range(100):
+            time.sleep(1)
             thread = threading.Thread(target=enviar_mensagem, args=(s, 'Olá'))
             threads.append(thread)
             thread.start()
